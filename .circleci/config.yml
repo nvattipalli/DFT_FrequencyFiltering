@@ -44,7 +44,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python dip_hw2_dft > output/dft_output.txt
+            python dip_hw2_dft.py > output/dft_output.txt
             mkdir /home/circleci/repo/test-reports
             mv -f \output/ /home/circleci/repo/test-reports
 
