@@ -140,4 +140,4 @@ class Filtering:
 
 
 
-        return self.image, self.image, self.image
+        return (self.image, self.image, self.image)
