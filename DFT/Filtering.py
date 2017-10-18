@@ -119,7 +119,7 @@ class Filtering:
 
     def filtering(self):
         """Performs frequency filtering on an input image
-        returns a filtered image
+        returns a filtered image, magnitude of DFT, magnitude of filtered DFT        
         ----------------------------------------------------------
         You are allowed to used inbuilt functions to compute fft
         There are packages available in numpy as well as in opencv
@@ -134,9 +134,10 @@ class Filtering:
         8. You will need to do a full contrast stretch on the magnitude and depending on the algorithm you may also need to
         take negative of the image to be able to view it (use post_process_image to write this code)
         Note: You do not have to do zero padding as discussed in class, the inbuilt functions takes care of that
+        filtered image, magnitude of DFT, magnitude of filtered DFT: Make sure all images being returned have grey scale full contrast stretch and dtype=uint8 
         """
 
 
 
 
-        return self.image
+        return self.image, self.image, self.image
