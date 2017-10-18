@@ -83,7 +83,7 @@ def main():
         filtered_image = Filter_obj.filtering()
     else:
         Filter_obj = Filtering(input_image, mask, cutoff_f)
-        (filtered_image, dft_image, dft_filtered_image) = Filter_obj.filtering()
+        [filtered_image, dft_image, dft_filtered_image] = Filter_obj.filtering()
 
     #Write output file
     output_dir = 'output/'
