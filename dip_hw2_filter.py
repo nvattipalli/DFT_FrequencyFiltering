@@ -10,7 +10,7 @@ __version__ = "1.0.0"
 
 import cv2
 import sys
-from resize import resample as rs
+from DFT import Filtering
 from datetime import datetime
 
 
@@ -33,7 +33,7 @@ def main():
     parser.add_argument("-i", "--image", dest="image",
                         help="specify the name of the image", metavar="IMAGE")
     parser.add_argument("-m", "--mask", dest="mask",
-                        help="specify name of the mask (ideal, butterworth and gaussian", metavar="MASK")
+                        help="specify name of the mask (ideal_l, ideal_h, butterworth_l, butterworth_h, gaussian_l or gaussian_h)", metavar="MASK")
     parser.add_argument("-c", "--cutoff_f", dest="cutoff_f",
                         help="specify the cutoff frequency", metavar="CUTOFF FREQUENCY")
     parser.add_argument("-o", "--order", dest="order",
@@ -49,46 +49,45 @@ def main():
     else:
         image_name = args.image.split(".")[0]
         input_image = cv2.imread(args.image, 0)
+        rows, cols = input_image.shape
 
     #Check resize scale parametes
     if args.mask is None:
-        print("Mask not specified using default (ideal)")
+        print("Mask not specified using default (ideal_l)")
         print("use the -h option to see usage information")
-        mask = 'ideal'
-    else:
-        fx = args.resize_x
-
-    if args.resize_y is None:
-        print("Resize scale fy not specified using default (1.5)")
+        mask = 'ideal_l'
+    elif args.mask not in ['ideal_l', 'ideal_h', 'butterworth_l', 'butterworth_h', 'gaussian_l' or 'gaussian_h']:
+        print("Unknown mask, using default (ideal_l)")
         print("use the -h option to see usage information")
-        fy = 1.5
+        mask = 'ideal_l'
     else:
-        fy = args.resize_y
+        mask = args.mask
 
-
-    #Check interpolate method argument
-    if args.interpolate is None:
-        print("Interpolation method not specified, using default=nearest_neighbor")
+    if args.cutoff_f is None:
+        print("Cutoff not specified using (min(height,widht)/2")
         print("use the -h option to see usage information")
-        interpolation = "nearest_neighbor"
-
+        cutoff_f = min(rows, cols) / 2
     else:
-        if args.interpolate not in ["nearest_neighbor", "bilinear"]:
-            print("Invalid nterpolation method, using default=nearest_neighbor")
+        cutoff_f = float(args.cutoff_f)
+
+    if mask in ['butterworth_l', 'butterworth_h']:
+        if args.order is None:
+            print("Order of the butterworth filter not specified, using default (2)")
             print("use the -h option to see usage information")
-            interpolation = "nearest_neighbor"
+            order = 2
         else:
-            interpolation = args.interpolate
+            order = float(args.order)
 
+    Filter_obj = Filtering()
 
-    resample_obj = rs.resample()
-    resampled_image = resample_obj.resize(input_image, fx=fx, fy=fy, interpolation=interpolation)
-
-    #Write output file
-    outputDir = 'output/resize/'
-
-    output_image_name = outputDir+image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"    
-    cv2.imwrite(output_image_name, resampled_image)
+    # resample_obj = rs.resample()
+    # resampled_image = resample_obj.resize(input_image, fx=fx, fy=fy, interpolation=interpolation)
+    #
+    # #Write output file
+    # outputDir = 'output/resize/'
+    #
+    # output_image_name = outputDir+image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
+    # cv2.imwrite(output_image_name, resampled_image)
 
 
 if __name__ == "__main__":
