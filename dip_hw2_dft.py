@@ -12,6 +12,7 @@ import cv2
 import sys
 from DFT import DFT
 from numpy.random import rand
+import numpy as np
 from datetime import datetime
 
 
@@ -27,7 +28,8 @@ def main():
      interpolation method and writes the output image"""
 
     # intialize a matrix of 25X25 pixels
-    input_matrix = rand(25,25)
+    input_matrix = np.int_(rand(15,15)*256)
+    input_matrix = np.int_(rand(15,15)*256)
     print("---------------Input Matrix----------------")
     print(input_matrix)
 
