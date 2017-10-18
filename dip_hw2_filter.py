@@ -77,10 +77,10 @@ def main():
             order = 2
         else:
             order = float(args.order)
-
+    output = None
     if mask in ['butterworth_l', 'butterworth_h']:
         Filter_obj = Filtering(input_image, mask, cutoff_f, order)
-        filtered_image = Filter_obj.filtering()
+        output = Filter_obj.filtering()
     else:
         Filter_obj = Filtering(input_image, mask, cutoff_f)
         output = Filter_obj.filtering()
