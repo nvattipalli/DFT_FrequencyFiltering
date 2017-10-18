@@ -83,13 +83,17 @@ def main():
         filtered_image = Filter_obj.filtering()
     else:
         Filter_obj = Filtering(input_image, mask, cutoff_f)
-        filtered_image = Filter_obj.filtering()
+        filtered_image, dft_image, dft_filtered_image = Filter_obj.filtering()
 
     #Write output file
     output_dir = 'output/'
 
     output_image_name = output_dir+image_name+"_"+mask+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
     cv2.imwrite(output_image_name, filtered_image)
+    output_image_name = output_dir + image_name+"_dft_" + mask + datetime.now().strftime("%m%d-%H%M%S") + ".jpg"
+    cv2.imwrite(output_image_name, dft_image)
+    output_image_name = output_dir + image_name + "_dft_filter_" + mask + datetime.now().strftime("%m%d-%H%M%S") + ".jpg"
+    cv2.imwrite(output_image_name, dft_filtered_image)
 
 
 if __name__ == "__main__":
