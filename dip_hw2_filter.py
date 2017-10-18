@@ -10,7 +10,7 @@ __version__ = "1.0.0"
 
 import cv2
 import sys
-from DFT import Filtering
+from DFT.Filtering import Filtering
 from datetime import datetime
 
 
@@ -78,16 +78,18 @@ def main():
         else:
             order = float(args.order)
 
-    Filter_obj = Filtering()
+    if mask in ['butterworth_l', 'butterworth_h']:
+        Filter_obj = Filtering(input_image, mask, cutoff_f, order)
+        filtered_image = Filter_obj.filtering()
+    else:
+        Filter_obj = Filtering(input_image, mask, cutoff_f)
+        filtered_image = Filter_obj.filtering()
 
-    # resample_obj = rs.resample()
-    # resampled_image = resample_obj.resize(input_image, fx=fx, fy=fy, interpolation=interpolation)
-    #
-    # #Write output file
-    # outputDir = 'output/resize/'
-    #
-    # output_image_name = outputDir+image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
-    # cv2.imwrite(output_image_name, resampled_image)
+    #Write output file
+    outputDir = 'output/'
+
+    output_image_name = outputDir+image_name+mask+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
+    cv2.imwrite(output_image_name, filtered_image)
 
 
 if __name__ == "__main__":
