@@ -45,12 +45,12 @@ jobs:
           command: |
             . venv/bin/activate
             python dip_hw2_dft.py > output/dft_output.txt
-            python dip_hw2_filter.py -i Lenna.png -m ideal_l -c 100
+            python dip_hw2_filter.py -i Lenna0.jpg -m ideal_l -c 100
             python dip_hw2_filter.py -i Lenna.png -m ideal_h -c 100
-            python dip_hw2_filter.py -i Lenna.png -m butterworth_l -c 100 -o 2
+            python dip_hw2_filter.py -i Lenna0.jpg -m butterworth_l -c 100 -o 2
             python dip_hw2_filter.py -i Lenna.png -m butterworth_h -c 100 -o 2
-            python dip_hw2_filter.py -i Lenna.png -m gaussian_l -c 100
-            python dip_hw2_filter.py -i Lenna.png -m gaussian_l -c 100
+            python dip_hw2_filter.py -i Lenna0.jpg -m gaussian_l -c 100
+            python dip_hw2_filter.py -i Lenna.png -m gaussian_h -c 100
             mkdir /home/circleci/repo/test-reports
             mv -f \output/ /home/circleci/repo/test-reports
 
