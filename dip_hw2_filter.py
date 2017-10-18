@@ -86,9 +86,9 @@ def main():
         filtered_image = Filter_obj.filtering()
 
     #Write output file
-    outputDir = 'output/'
+    output_dir = 'output/'
 
-    output_image_name = outputDir+image_name+mask+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
+    output_image_name = output_dir+image_name+"_"+mask+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
     cv2.imwrite(output_image_name, filtered_image)
 
 

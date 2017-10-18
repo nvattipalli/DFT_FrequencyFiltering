@@ -131,10 +131,12 @@ class Filtering:
         5. compute the inverse shift
         6. compute the inverse fourier transform
         7. compute the magnitude
-        8. You will need to do a full contrast stretch on the magnitude and also take negative of the image to be
-        able to view it (use post_process_image to write this code)
+        8. You will need to do a full contrast stretch on the magnitude and depending on the algorithm you may also need to
+        take negative of the image to be able to view it (use post_process_image to write this code)
         Note: You do not have to do zero padding as discussed in class, the inbuilt functions takes care of that
         """
+
+
 
 
         return self.image
