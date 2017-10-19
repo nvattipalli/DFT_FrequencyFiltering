@@ -12,9 +12,10 @@ The input to your program is a 2D matrix of size 15X15.
   - For this part of the assignment, please implement your own code for all computations, do not use inbuilt functions like "fft" or "dft" from numpy, opencv or other libraries
   - Describe your method and findings in the report.md file
   - This part of the assignment can be run using dip_hw2_dft.py (there is no need to edit this file)
-  - Usage: ./dip_hw1_dft
+  - Usage: 
   
-            python dip_hw1_dft.py
+        ./dip_hw1_dft  
+        python dip_hw1_dft.py
   - Please make sure your code runs when you run the above command from prompt/terminal
   - Any output images or files must be saved to "output/" folder (dip_hw1_dft.py automatically does this)
   
@@ -34,9 +35,10 @@ The input to your program is a 2D matrix of size 15X15.
 - For example, you are welcome to use fft and dft libraries that are available in numpy and opencv
 - Describe your method and findings in the report.md file
 - This part of the assignment can be run using dip_hw2_filter.py (there is no need to edit this file)
-- Usage: ./dip_hw1_filter -i image -m ideal_l -c 50
-  
-            python dip_hw1_filter.py -i image -m ideal_l -c 50
+- Usage: 
+
+      ./dip_hw1_filter -i image -m ideal_l -c 50
+      python dip_hw1_filter.py -i image -m ideal_l -c 50
   - Please make sure your code runs when you run the above command from prompt/terminal
   - Any output images or files must be saved to "output/" folder (dip_hw1_filter.py automatically does this)
   
