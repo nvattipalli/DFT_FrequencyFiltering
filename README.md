@@ -9,7 +9,7 @@ The input to your program is a 2D matrix of size 15X15.
 
   - Starter code available in directory DFT/
   - DFT/DFT.py: One is required to edit the functions "forward_transform", "inverse_transform", "discrete_cosine_tranform" and "magnitude", you are welcome to add more function.
-  - For this part of the assignment, please implement your own code for all computations, do not use inbuilt functions like "fft or dft" from numpy, opencv or other libraries
+  - For this part of the assignment, please implement your own code for all computations, do not use inbuilt functions like "fft" or "dft" from numpy, opencv or other libraries
   - Describe your method and findings in the report.md file
   - This part of the assignment can be run using dip_hw2_dft.py (there is no need to edit this file)
   - Usage: ./dip_hw1_dft
