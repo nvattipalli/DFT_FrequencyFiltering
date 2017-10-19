@@ -54,7 +54,7 @@ class Filtering:
 
         #Hint: May be one can use the low pass filter function to get a high pass mask
 
-        print(self.filter)
+        
         return 0
 
     def get_butterworth_low_pass_filter(self, shape, cutoff, order):
@@ -65,7 +65,7 @@ class Filtering:
         order: the order of the butterworth filter
         returns a butterworth low pass mask"""
 
-        print(self.filter)
+        
         return 0
 
     def get_butterworth_high_pass_filter(self, shape, cutoff, order):
@@ -78,7 +78,7 @@ class Filtering:
 
         #Hint: May be one can use the low pass filter function to get a high pass mask
 
-        print(self.filter)
+        
         return 0
 
     def get_gaussian_low_pass_filter(self, shape, cutoff):
@@ -88,7 +88,7 @@ class Filtering:
         cutoff: the cutoff frequency of the gaussian filter (sigma)
         returns a gaussian low pass mask"""
 
-        print(self.filter)
+        
         return 0
 
     def get_gaussian_high_pass_filter(self, shape, cutoff):
@@ -100,7 +100,7 @@ class Filtering:
 
         #Hint: May be one can use the low pass filter function to get a high pass mask
 
-        print(self.filter)
+        
         return 0
 
     def post_process_image(self, image):
