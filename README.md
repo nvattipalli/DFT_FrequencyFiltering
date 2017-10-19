@@ -4,7 +4,7 @@ Assignment #2
 Due: Thu 11/02/17 11:59 PM
 
 1. DFT:
-(8 Pts)Write code for computing forward fourier transform, inverse fourier transform, discrete cosine transfrom and magnitude of the fourier transform. 
+(8 Pts.) Write code for computing forward fourier transform, inverse fourier transform, discrete cosine transfrom and magnitude of the fourier transform. 
 The input to your program is a 2D matrix of size 15X15.
 
   - Starter code available in directory DFT/
@@ -19,7 +19,7 @@ The input to your program is a 2D matrix of size 15X15.
   
 -------------
 2. Frequency Filtering:
-(15 Pts) Write Code to perfrom image filtering in the frequency domain by modifying the DFT of images using different Masks. Filter images using six different filters ideal low pass, ideal high pass, butterworth low pass, butterworth high pass, gaussian low pass and gaussian high pass filter. The input to your program is an image, name of the mask, cuttoff frequency and order(only for butterworth filter).
+(15 Pts.) Write Code to perfrom image filtering in the frequency domain by modifying the DFT of images using different Masks. Filter images using six different filters ideal low pass, ideal high pass, butterworth low pass, butterworth high pass, gaussian low pass and gaussian high pass filter. The input to your program is an image, name of the mask, cuttoff frequency and order(only for butterworth filter).
 
 - Starter code available in directory DFT/ 
 - DFT/Filtering.py:
