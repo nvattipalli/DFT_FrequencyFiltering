@@ -24,7 +24,7 @@ The input to your program is a 2D matrix of size 15X15.
 - Starter code available in directory DFT/ 
 - DFT/Filtering.py:
 
-  - "__init__"(): Will intialize the required variable for filtering (image, mask function, cutoff, order). There is no need to edit this function  
+  - \__init__(): Will intialize the required variable for filtering (image, mask function, cutoff, order). There is no need to edit this function  
   - get_mask_freq_pass_filter(): There are six function definitions one for each of the of the filter. write your code to generate the masks for each filter here. 
   - filtering(): Write your code to perform image filtering here. The steps can be used as a guideline for filtering. All the variable have already been intialized and can be used as self.image, self.cutoff, etc. The varaible self.filter is a handle to each of the six fitler functions. You can call it using self.filter(shape, cutoff, ...)
     - The function returns three images, filtered image, magnitude of the DFT and magnitude of filtered dft 
