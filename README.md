@@ -13,6 +13,7 @@ The input to your program is a 2D matrix of size 15X15.
   - Describe your method and findings in the report.md file
   - This part of the assignment can be run using dip_hw2_dft.py (there is no need to edit this file)
   - Usage: ./dip_hw1_dft
+  
             python dip_hw1_dft.py
   - Please make sure your code runs when you run the above command from prompt/terminal
   - Any output images or files must be saved to "output/" folder (dip_hw1_dft.py automatically does this)
@@ -23,13 +24,21 @@ The input to your program is a 2D matrix of size 15X15.
 
 - Starter code available in directory DFT/ 
 - DFT/Filtering.py:
-
   - \__init__(): Will intialize the required variable for filtering (image, mask function, cutoff, order). There is no need to edit this function  
   - get_mask_freq_pass_filter(): There are six function definitions one for each of the of the filter. write your code to generate the masks for each filter here. 
   - filtering(): Write your code to perform image filtering here. The steps can be used as a guideline for filtering. All the variable have already been intialized and can be used as self.image, self.cutoff, etc. The varaible self.filter is a handle to each of the six fitler functions. You can call it using self.filter(shape, cutoff, ...)
     - The function returns three images, filtered image, magnitude of the DFT and magnitude of filtered dft 
     - To be able to display magnitude of the DFT and magnitude of filtered dft, one would have to perform a logrithmic compression and convert the value to uint8
   - post_process_image(): After fitlering and computing the inverse DFT, One would typically have to scale the image pixels to view it. You can write code to do a full contrast stretch here and in some cases you would also have to take a negative of the image. 
+-  For this part of the assignment, You can use inbuilt functions to compute the fourier transform
+- For example, you are welcome to use fft and dft libraries that are available in numpy and opencv
+- Describe your method and findings in the report.md file
+- This part of the assignment can be run using dip_hw2_filter.py (there is no need to edit this file)
+- Usage: ./dip_hw1_filter -i image -m ideal_l -c 50
+  
+            python dip_hw1_filter.py -i image -m ideal_l -c 50
+  - Please make sure your code runs when you run the above command from prompt/terminal
+  - Any output images or files must be saved to "output/" folder (dip_hw1_filter.py automatically does this)
   
 -------------
 3. (2 Pts.) Describe your method and report you findings in report.md for each problem of the assignemnt.
