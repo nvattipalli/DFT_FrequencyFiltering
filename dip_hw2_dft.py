@@ -40,15 +40,15 @@ def main():
     print("---------------Forward Fourier Transform----------------")
     print(fft_matrix)
 
-    #Compute the magnitude of the dft
-    magnitude_matrix = dft_obj.magnitude(fft_matrix)
-    print("---------------Magnitude of the Forward Fourier Transform ----------------")
-    print(magnitude_matrix)
-
     #Compute the inverse Fourier transfrom
     ift_matrix = dft_obj.inverse_transform(fft_matrix)
     print("---------------Inverse Fourier Transform----------------")
     print(ift_matrix)
+    
+     #Compute the magnitude of the dft
+    magnitude_matrix = dft_obj.magnitude(ift_matrix)
+    print("---------------Magnitude of the inverse Forward Fourier Transform ----------------")
+    print(magnitude_matrix)
 
     # Compute the discrete cosine transform
     dct_matrix = dft_obj.discrete_cosine_tranform(input_matrix)
