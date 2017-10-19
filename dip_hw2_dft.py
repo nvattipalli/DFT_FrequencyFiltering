@@ -45,7 +45,7 @@ def main():
     print("---------------Inverse Fourier Transform----------------")
     print(ift_matrix)
     
-     #Compute the magnitude of the dft
+    #Compute the magnitude of the dft
     magnitude_matrix = dft_obj.magnitude(ift_matrix)
     print("---------------Magnitude of the inverse Forward Fourier Transform ----------------")
     print(magnitude_matrix)
