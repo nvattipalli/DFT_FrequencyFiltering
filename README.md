@@ -21,7 +21,7 @@ The input to your program is a 2D matrix of size 15X15.
   
 -------------
 2. Frequency Filtering:
-(15 Pts.) Write Code to perfrom image filtering in the frequency domain by modifying the DFT of images using different Masks. Filter images using six different filters ideal low pass, ideal high pass, butterworth low pass, butterworth high pass, gaussian low pass and gaussian high pass filter. The input to your program is an image, name of the mask, cuttoff frequency and order(only for butterworth filter).
+(15 Pts.) Write Code to perfrom image filtering in the frequency domain by modifying the DFT of images using different Masks. Filter images using six different filters ideal low pass (ideal_l), ideal high pass (ideal_h), butterworth low pass (butterworth_l), butterworth high pass (butterworth_h), gaussian low pass (gaussian_l) and gaussian high pass filter (gaussian_h). The input to your program is an image, name of the mask, cuttoff frequency and order(only for butterworth filter).
 
 - Starter code available in directory DFT/ 
 - DFT/Filtering.py:
