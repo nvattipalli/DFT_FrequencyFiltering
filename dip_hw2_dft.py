@@ -30,6 +30,7 @@ def main():
     # intialize a matrix of 25X25 pixels
     input_matrix = np.int_(rand(15,15)*256)
     input_matrix = np.int_(rand(15,15)*256)
+    #input_matrix = np.array([[1,2], [3,4]])
     print("---------------Input Matrix----------------")
     print(input_matrix)
 
