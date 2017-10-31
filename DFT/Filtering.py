@@ -42,6 +42,7 @@ class Filtering:
         returns a ideal low pass mask"""
 
 
+
         return 0
 
 
