@@ -203,12 +203,12 @@ class Filtering:
 
         fftimage = np.fft.fft2(self.image)
 
-        shift_fftimage = np.fft.fftshift(fftimage)
+        shiftimage = np.fft.fftshift(fftimage)
         mask = self.filter(self.image.shape, self.cutoff)
-        filterimage = np.add(shift_fftimage, mask)
-        inverse_shiftimage = np.fft.ifftshift(filterimage)
-        filteredimage = np.fft.ifft2(inverse_shiftimage)
-        magnitudeofdft = np.absolute(shift_fftimage)
+        filterimage = np.add(shiftimage, mask)
+        inverseshiftimage = np.fft.ifftshift(filterimage)
+        filteredimage = np.fft.ifft2(inverseshiftimage)
+        magnitudeofdft = np.absolute(shiftimage)
         filteredimage = np.uint8(self.post_process_image(np.absolute(filteredimage)))
         magnitudeofdft = np.uint8(np.log(magnitudeofdft))
         magnitudeoffiltereddft = magnitudeofdft + mask
