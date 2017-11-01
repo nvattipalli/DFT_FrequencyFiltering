@@ -1,6 +1,8 @@
 # For this part of the assignment, You can use inbuilt functions to compute the fourier transform
 # You are welcome to use fft that are available in numpy and opencv
-
+import numpy as np
+import math as m
+import cv2
 
 class Filtering:
     image = None
@@ -41,9 +43,20 @@ class Filtering:
         cutoff: the cutoff frequency of the ideal filter
         returns a ideal low pass mask"""
 
+        (rows, columns) = shape
+        mask = np.zeros((rows, columns), np.uint8) * 255
+        for u in range(rows):
+            for v in range(columns):
+                distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
+                if (distance <= self.cutoff):
+                    mask[u, v] = 0
+                else:
+                    mask[u, v] = 255
+        return mask
 
 
-        return 0
+
+        #return 0
 
 
     def get_ideal_high_pass_filter(self, shape, cutoff):
@@ -54,9 +67,19 @@ class Filtering:
         returns a ideal high pass mask"""
 
         #Hint: May be one can use the low pass filter function to get a high pass mask
+        (rows, columns) = shape
+        mask = np.zeros((rows, columns), np.uint8) * 255
+        for u in range(rows):
+            for v in range(columns):
+                distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
+                if (distance <= self.cutoff):
+                    mask[u, v] = 255
+                else:
+                    mask[u, v] = 0
 
+        return mask
         
-        return 0
+        #return 0
 
     def get_butterworth_low_pass_filter(self, shape, cutoff, order):
         """Computes a butterworth low pass mask
@@ -66,8 +89,17 @@ class Filtering:
         order: the order of the butterworth filter
         returns a butterworth low pass mask"""
 
+        (rows, columns) = shape
+        mask = np.zeros((rows, columns), np.uint8) * 255
+        for u in range(rows):
+            for v in range(columns):
+                distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
+                mask[u, v] = 1 / (1 + (m.pow((distance / self.cutoff), 2 * self.order)))
+
+        return mask
+
         
-        return 0
+        #return 0
 
     def get_butterworth_high_pass_filter(self, shape, cutoff, order):
         """Computes a butterworth high pass mask
@@ -79,8 +111,16 @@ class Filtering:
 
         #Hint: May be one can use the low pass filter function to get a high pass mask
 
+        (rows, columns) = shape
+        mask = np.zeros((rows, columns), np.uint8) * 255
+        for u in range(rows):
+            for v in range(columns):
+                distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
+                mask[u, v] = 1 / (1 + (m.pow((self.cutoff / distance), 2 * self.order)))
+
+        return mask
         
-        return 0
+        #return 0
 
     def get_gaussian_low_pass_filter(self, shape, cutoff):
         """Computes a gaussian low pass mask
@@ -89,8 +129,15 @@ class Filtering:
         cutoff: the cutoff frequency of the gaussian filter (sigma)
         returns a gaussian low pass mask"""
 
-        
-        return 0
+        (rows, columns) = shape
+        mask = np.zeros((rows, columns), np.uint8) * 255
+        for u in range(rows):
+            for v in range(columns):
+                distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
+                mask[u, v] = np.exp(-(m.pow(distance / self.cutoff, 2)) / 2)
+
+        return mask
+        #return 0
 
     def get_gaussian_high_pass_filter(self, shape, cutoff):
         """Computes a gaussian high pass mask
@@ -101,8 +148,17 @@ class Filtering:
 
         #Hint: May be one can use the low pass filter function to get a high pass mask
 
+        (rows, columns) = shape
+        mask = np.zeros((rows, columns), np.uint8) * 255
+        for u in range(rows):
+            for v in range(columns):
+                distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
+                mask[u, v] = 1 - np.exp(-(m.pow(distance / self.cutoff, 2)) / 2)
+
+        return mask
+
         
-        return 0
+        #return 0
 
     def post_process_image(self, image):
         """Post process the image to create a full contrast stretch of the image
@@ -113,7 +169,14 @@ class Filtering:
         1. Full contrast stretch (fsimage)
         2. take negative (255 - fsimage)
         """
-
+        a = np.amin(image)
+        b = np.amax(image)
+        print(a, b)
+        (rows, columns) = image.shape
+        k = 255 / (b - a)
+        for i in range(rows):
+            for j in range(columns):
+                image[i, j] = k * (image[i, j] - a)
 
         return image
 
@@ -138,7 +201,18 @@ class Filtering:
         filtered image, magnitude of DFT, magnitude of filtered DFT: Make sure all images being returned have grey scale full contrast stretch and dtype=uint8 
         """
 
+        fftimage = np.fft.fft2(self.image)
 
+        shift_fftimage = np.fft.fftshift(fftimage)
+        mask = self.filter(self.image.shape, self.cutoff)
+        filterimage = np.add(shift_fftimage, mask)
+        inverse_shiftimage = np.fft.ifftshift(filterimage)
+        filteredimage = np.fft.ifft2(inverse_shiftimage)
+        magnitudeofdft = np.absolute(shift_fftimage)
+        filteredimage = np.uint8(self.post_process_image(np.absolute(filteredimage)))
+        magnitudeofdft = np.uint8(np.log(magnitudeofdft))
+        magnitudeoffiltereddft = magnitudeofdft + mask
 
+        return [filteredimage, magnitudeofdft, magnitudeoffiltereddft]
 
-        return [self.image, self.image, self.image]
+        #return [self.image, self.image, self.image]

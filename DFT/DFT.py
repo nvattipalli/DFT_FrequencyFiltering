@@ -16,8 +16,8 @@ class DFT:
             for v in range(matrix.shape[1]) :
                 for i in range(matrix.shape[0]) :
                     for j in range(matrix.shape[1]) :
-                        tempmatrix[u][v] = tempmatrix[u][v] + matrix[i][j] * complex(m.cos((2 * np.pi / 15 )* (u * i + v * j)),
-                                                                         -m.sin((2 * np.pi / 15) * (u * i + v * j)))
+                        tempmatrix[u][v] = tempmatrix[u][v] + matrix[i][j] * complex(m.cos((2 * np.pi / rows )* (u * i + v * j)),
+                                                                         -m.sin((2 * np.pi / columns) * (u * i + v * j)))
 
         matrix = tempmatrix
         return matrix
@@ -33,8 +33,8 @@ class DFT:
             for v in range(matrix.shape[1]):
                 for i in range(matrix.shape[0]):
                     for j in range(matrix.shape[1]):
-                        tempmatrix[u][v] = tempmatrix[u][v] + matrix[i][j] * complex(m.cos((2 * np.pi / 15 )* (u * i + v * j)),
-                                                                         m.sin((2 * np.pi / 15) * (u * i + v * j)))
+                        tempmatrix[u][v] = tempmatrix[u][v] + matrix[i][j] * complex(m.cos((2 * np.pi / rows )* (u * i + v * j)),
+                                                                         m.sin((2 * np.pi / columns) * (u * i + v * j)))
 
         matrix = tempmatrix
         return matrix
@@ -46,12 +46,13 @@ class DFT:
         matrix: a 2d matrix
         returns a matrix representing discrete cosine transform"""
         (rows, columns) = matrix.shape
+        #print(rows, columns)
         tempmatrix = np.zeros((rows, columns), dtype=complex)
         for u in range(matrix.shape[0]):
             for v in range(matrix.shape[1]):
                 for i in range(matrix.shape[0]):
                     for j in range(matrix.shape[1]):
-                        tempmatrix[u][v] = tempmatrix[u][v] + matrix[i][j] * m.cos((2 * np.pi /15) * (u * i + v * j))
+                        tempmatrix[u][v] = tempmatrix[u][v] + matrix[i][j] * m.cos((2 * np.pi /rows) * (u * i + v * j))
         matrix = tempmatrix
         return matrix
 
