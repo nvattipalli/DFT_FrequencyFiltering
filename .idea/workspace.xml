@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09113483-48ab-49f9-bc15-20e869756dc0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1031-014119.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1031-014341.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1031-014456.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1101-124858.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1101-135131.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1031-014119.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1031-014341.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1031-014456.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1101-124858.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1101-135131.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1031-014119.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1031-014341.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1031-014456.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1101-124858.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1101-135131.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_h1101-201241.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1101-182836.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_filter_ideal_l1101-234256.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_h1101-201241.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1101-182836.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_dft_ideal_l1101-234256.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_h1101-201241.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1101-182836.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/Lenna0_ideal_l1101-234256.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DFT/Filtering.py" afterPath="$PROJECT_DIR$/DFT/Filtering.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Filtering.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Filtering.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DFT/Filtering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="210" column="18" lean-forward="false" selection-start-line="210" selection-start-column="18" selection-end-line="210" selection-end-column="18" />
+            <state relative-caret-position="217">
+              <caret line="209" column="9" lean-forward="false" selection-start-line="209" selection-start-column="9" selection-end-line="209" selection-end-column="9" />
               <folding>
                 <element signature="e#166#184#0" expanded="true" />
               </folding>
@@ -41,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dip_hw2_filter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dip_hw2_filter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dip_hw2_filter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state relative-caret-position="488">
+              <caret line="69" column="9" lean-forward="false" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -83,7 +76,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -182,7 +175,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -337,21 +330,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DFT/Filtering.py">
+    <entry file="file://$PROJECT_DIR$/dip_hw2_filter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="210" column="18" lean-forward="false" selection-start-line="210" selection-start-column="18" selection-end-line="210" selection-end-column="18" />
-          <folding>
-            <element signature="e#166#184#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="488">
+          <caret line="69" column="9" lean-forward="false" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dip_hw2_filter.py">
+    <entry file="file://$PROJECT_DIR$/DFT/Filtering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="217">
+          <caret line="209" column="9" lean-forward="false" selection-start-line="209" selection-start-column="9" selection-end-line="209" selection-end-column="9" />
+          <folding>
+            <element signature="e#166#184#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

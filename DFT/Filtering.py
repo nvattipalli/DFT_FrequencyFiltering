@@ -49,9 +49,9 @@ class Filtering:
             for v in range(columns):
                 distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
                 if (distance <= self.cutoff):
-                    mask[u, v] = 0
-                else:
                     mask[u, v] = 255
+                else:
+                    mask[u, v] = 0
         return mask
 
 
@@ -73,9 +73,9 @@ class Filtering:
             for v in range(columns):
                 distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
                 if (distance <= self.cutoff):
-                    mask[u, v] = 255
-                else:
                     mask[u, v] = 0
+                else:
+                    mask[u, v] = 255
 
         return mask
         
@@ -174,9 +174,9 @@ class Filtering:
         """
         a = np.amin(image)
         b = np.amax(image)
-        print(a, b)
+        #print(a, b)
         (rows, columns) = image.shape
-        k = 255 / (b - a)
+        k = 255. / (b - a)
         for i in range(rows):
             for j in range(columns):
                 image[i, j] = k * (image[i, j] - a)
@@ -207,13 +207,16 @@ class Filtering:
         fftimage = np.fft.fft2(self.image)
 
         shiftimage = np.fft.fftshift(fftimage)
-        mask = self.filter(self.image.shape, self.cutoff)
-        print(mask)
+        #mask = self.filter(self.image.shape, self.cutoff)
+        mask = self.get_ideal_low_pass_filter(self.image.shape, self.cutoff)
+        mask = self.get_ideal_high_pass_filter(self.image.shape, self.cutoff)
+
+        mask = self.get_butterworth_low_pass_filter(self.image.shape, self.cutoff, self.order)
+        mask = self.get_butterworth_high_pass_filter(self.image.shape, self.cutoff, self.order)
+
+        mask = self.get_gaussian_low_pass_filter(self.image.shape, self.cutoff)
+        mask = self.get_gaussian_high_pass_filter(self.image.shape, self.cutoff)
         #mask = self.filter(self.image.shape, self.cutoff, self.order)
-        """if args.mask in ['butterworth_l', 'butterworth_h']:
-            mask = self.filter(self.image.shape, self.cutoff, self.order)
-        else:
-            mask = self.filter(self.image.shape, self.cutoff)"""
         filterimage = shiftimage * mask
         inverseshiftimage = np.fft.ifftshift(filterimage)
         filteredimage = np.fft.ifft2(inverseshiftimage)
@@ -221,7 +224,9 @@ class Filtering:
         filteredimage = np.uint8(self.post_process_image(np.absolute(filteredimage)))
         magnitudeofdft = np.uint8(np.log(magnitudeofdft))
         # magnitudeoffiltereddft = magnitudeofdft + mask
-        magnitudeoffiltereddft = self.post_process_image(np.absolute(filterimage))
+        #magnitudeoffiltereddft = self.post_process_image(np.absolute(filterimage))
+        magnitudeoffiltereddft = np.uint8(np.log(np.absolute(filterimage)))
+        #magnitudeoffiltereddft = np.uint8(np.absolute(filterimage))
         return [filteredimage, magnitudeofdft, magnitudeoffiltereddft]
 
 
