@@ -94,7 +94,7 @@ class Filtering:
         for u in range(rows):
             for v in range(columns):
                 distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
-                mask[u, v] = 1 / (1 + (m.pow((distance / self.cutoff), 2 * self.order)))
+                mask[u, v] = 255. / (1 + (m.pow((distance / self.cutoff), 2 * self.order)))
 
         return mask
 
@@ -116,7 +116,10 @@ class Filtering:
         for u in range(rows):
             for v in range(columns):
                 distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
-                mask[u, v] = 1 / (1 + (m.pow((self.cutoff / distance), 2 * self.order)))
+                if (distance != 0):
+                    mask[u, v] = 255. / (1 + (m.pow((self.cutoff / distance), 2 * self.order)))
+                else:
+                    mask[u, v] = 0
 
         return mask
         
@@ -134,7 +137,7 @@ class Filtering:
         for u in range(rows):
             for v in range(columns):
                 distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
-                mask[u, v] = np.exp(-(m.pow(distance / self.cutoff, 2)) / 2)
+                mask[u, v] = 255 * np.exp(-(m.pow(distance / self.cutoff, 2)) / 2)
 
         return mask
         #return 0
@@ -153,14 +156,14 @@ class Filtering:
         for u in range(rows):
             for v in range(columns):
                 distance = m.sqrt(m.pow((u - rows / 2), 2) + m.pow((v - columns / 2), 2))
-                mask[u, v] = 1 - np.exp(-(m.pow(distance / self.cutoff, 2)) / 2)
+                mask[u, v] = 255 - 255 * np.exp(-(m.pow(distance / self.cutoff, 2)) / 2)
 
         return mask
 
         
         #return 0
 
-    def post_process_image(self, image):
+    def post_process_image(self,     image):
         """Post process the image to create a full contrast stretch of the image
         takes as input:
         image: the image obtained from the inverse fourier transform
@@ -205,14 +208,21 @@ class Filtering:
 
         shiftimage = np.fft.fftshift(fftimage)
         mask = self.filter(self.image.shape, self.cutoff)
-        filterimage = np.add(shiftimage, mask)
+        print(mask)
+        #mask = self.filter(self.image.shape, self.cutoff, self.order)
+        """if args.mask in ['butterworth_l', 'butterworth_h']:
+            mask = self.filter(self.image.shape, self.cutoff, self.order)
+        else:
+            mask = self.filter(self.image.shape, self.cutoff)"""
+        filterimage = shiftimage * mask
         inverseshiftimage = np.fft.ifftshift(filterimage)
         filteredimage = np.fft.ifft2(inverseshiftimage)
         magnitudeofdft = np.absolute(shiftimage)
         filteredimage = np.uint8(self.post_process_image(np.absolute(filteredimage)))
         magnitudeofdft = np.uint8(np.log(magnitudeofdft))
-        magnitudeoffiltereddft = magnitudeofdft + mask
-
+        # magnitudeoffiltereddft = magnitudeofdft + mask
+        magnitudeoffiltereddft = self.post_process_image(np.absolute(filterimage))
         return [filteredimage, magnitudeofdft, magnitudeoffiltereddft]
+
 
         #return [self.image, self.image, self.image]
