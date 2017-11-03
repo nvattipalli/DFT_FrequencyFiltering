@@ -48,5 +48,8 @@ Filtering
 * Computed the fft of the image using fft, fft2 inbuilt functions
 * Shifted the fft image using fftshift
 * Computed the mask
+Filtered the image based on mask
+Computed the inverse shift and inverse fourier transform
+Computed the magnitude
  
 
