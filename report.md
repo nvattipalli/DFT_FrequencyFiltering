@@ -36,3 +36,17 @@ d) Magnitude
 This is the square root of the sum of squares of the real and imaginary values which is calculated using the formulae
 tempmatrix[i][j] = m.sqrt(m.pow(np.real(matrix[i][j]), 2) + m.pow(np.imag(matrix[i][j]), 2))
 
+2. Frequency Filtering
+I implemented filtering using six different filters. Ideal low pass (ideal_l), ideal high pass (ideal_h), butterworth low pass (butterworth_l), butterworth high pass (butterworth_h), gaussian low pass (gaussian_l) and gaussian high pass filter (gaussian_h). Input to all the filters are image, mask, cutoff frequency. For butterworth, we are using order as well.
+Each filter is implemented using the corresponding formulae.
+I have taken order = 0 for gaussian, ideal filters since we do not need that parameter for these filters.
+
+post_process_image
+Post_process_image function is used to perform full contrast stretch using the formula J(i, j) = (K – 1/ B - A)[I(i, j) – A]
+
+Filtering
+* Computed the fft of the image using fft, fft2 inbuilt functions
+* Shifted the fft image using fftshift
+* Computed the mask
+ 
+

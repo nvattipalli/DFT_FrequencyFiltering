@@ -33,7 +33,7 @@ def main():
     parser.add_argument("-i", "--image", dest="image",
                         help="specify the name of the image", metavar="IMAGE")
     parser.add_argument("-m", "--mask", dest="mask",
-                        help="specify name of the mask (ideal_l, ideal_h, butterworth_l, butterworth_h, gaussian_l or gaussian_h)", metavar="MASK")
+                        help="specify name of the mask (ideal_l, ideal_h, butterworth_l, butterworth_h, gaussian_l ,gaussian_h)", metavar="MASK")
     parser.add_argument("-c", "--cutoff_f", dest="cutoff_f",
                         help="specify the cutoff frequency", metavar="CUTOFF FREQUENCY")
     parser.add_argument("-o", "--order", dest="order",
@@ -56,7 +56,7 @@ def main():
         print("Mask not specified using default (ideal_l)")
         print("use the -h option to see usage information")
         mask = 'ideal_l'
-    elif args.mask not in ['ideal_l', 'ideal_h', 'butterworth_l', 'butterworth_h', 'gaussian_l' or 'gaussian_h']:
+    elif args.mask not in ['ideal_l', 'ideal_h', 'butterworth_l', 'butterworth_h', 'gaussian_l', 'gaussian_h']:
         print("Unknown mask, using default (ideal_l)")
         print("use the -h option to see usage information")
         mask = 'ideal_l'
